@@ -1,5 +1,5 @@
 import streamlit
-streamlit.Title('Healthy Dinner');
-streamlit.Header('Breakfast');
-streamlit.text('One cup of mile');
-streamlit.text('Egg Omlet');
+streamlit.title('Healthy Dinner')
+streamlit.header('Breakfast')
+streamlit.text('One cup of mile')
+streamlit.text('Egg Omlet')
