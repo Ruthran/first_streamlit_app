@@ -18,7 +18,7 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 # With Filter
 streamlit.dataframe(fruits_to_show)
 #Full List
-streamlit.dataframe(my_fruit_list)
+#streamlit.dataframe(my_fruit_list)
 
 def get_fruityvice_data(this_fruit_choise):
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choise)
@@ -33,8 +33,8 @@ try:
   if not fruit_choice:
     streamlit.error("Please select a fruit to get the information");
   else:
-    back_from_function = get_fruityvice_data(fruit_choise)
-    streamlit.dataframe(fruit_choise)
+    back_from_function = get_fruityvice_data(fruit_choice)
+    streamlit.dataframe(back_from_function)
 except URLError as e:
   Streamlit.error()
   
