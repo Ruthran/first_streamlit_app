@@ -2,6 +2,7 @@ import streamlit
 import pandas
 import requests
 import snowflake.connector
+from urllib.error import URLError
 
 streamlit.title('Healthy Dinner')
 streamlit.header('Breakfast')
@@ -32,6 +33,7 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_c
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # creating dataframe with json data
 streamlit.dataframe(fruityvice_normalized)
+streamlit.stop();
 
 #Snowflake Connection
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
@@ -52,5 +54,6 @@ streamlit.header("Fruityvice Fruit Advice!")
 
 add_my_fruits = streamlit.text_input('What fruit would you like to add?','jackfruit')
 streamlit.write('Thanks for adding ', add_my_fruits)
+my_cur.execute("insert into PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST values ('from streamlit')");
 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + add_my_fruits)
