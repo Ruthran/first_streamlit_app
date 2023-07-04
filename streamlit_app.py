@@ -51,6 +51,6 @@ streamlit.dataframe(my_data_rows)
 streamlit.header("Fruityvice Fruit Advice!")
 
 add_my_fruits = streamlit.text_input('What fruit would you like to add?','jackfruit')
-streamlit.write('Thanks for adding ', fruit_choice)
+streamlit.write('Thanks for adding ', add_my_fruits)
 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + add_my_fruits)
